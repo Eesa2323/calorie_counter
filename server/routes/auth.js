@@ -1,2 +1,1 @@
-// Auth Route
-// Implement routess
+// Auth Routes - Yet to implement
