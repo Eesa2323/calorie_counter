@@ -7,7 +7,7 @@ const cors = require('cors')
 app.use(express.json())
 app.use(cors({origin: "*", allowedHeaders: ["x-auth-token"], exposedHeaders: ["x-auth-token"]}))
 
-app.get("/",  (req, res) => {
+app.get("/", (req, res) => {
     res.send("Hello, It's Eesa.")
 })
 
