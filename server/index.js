@@ -8,7 +8,7 @@ app.use(express.json())
 app.use(cors({origin: "*", allowedHeaders: ["x-auth-token"], exposedHeaders: ["x-auth-token"]}))
 
 app.get("/", (req, res) => {
-    res.send("Hello, It's Eesa.")
+    res.send("Hello, It's Eesa."    )
 })
 
 // Configured server to listen on port 6000
