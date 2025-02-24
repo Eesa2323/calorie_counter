@@ -9,6 +9,7 @@ app.use(express.json())
 app.use(cors({origin: "*", allowedHeaders: ["x-auth-token"], exposedHeaders: ["x-auth-token"]}))
 
 // connected to the DB
+// CONN URL
 mongoose.connect('mongodb+srv://admin:admin123@caloriecounter.78kht.mongodb.net/?retryWrites=true&w=majority&appName=CalorieCounter')
     .then(() => console.log('Database connected'))
     .catch((err) => console.log(err))
