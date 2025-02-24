@@ -6,7 +6,7 @@ const bcrypt = require('bcrypt')
 // ELLO
 router.post("/signup", async (req, res) => {
     const {username, email, password} = req.body
-    if (!username|| !password) return res.status(400).send('Could not signup')
+    if (!username|| !password || !email) return res.status(400).send('Could not signup')
 
     // Username already exists
     let user = await User.findOne({ username: req.body.username })
@@ -28,7 +28,20 @@ router.post("/signup", async (req, res) => {
     await user.save()
 
     res.send(user)
+})
 
+
+router.post("/login", async (req, res) => {
+    const {email, password} = req.body
+    if (!email || !password) return res.status(400).send('Could not login')
+
+    const user = await User.findOne({ email })
+    if (!user) return res.status(400).send("User Doesn't exist with provided email")
+
+    const validPassword = await bcrypt.compare(password, user.password)
+    if (!validPassword) return res.status(400).send('Could not match passwords')
+
+    res.send('Logged in')
 })
 
 module.exports = router
