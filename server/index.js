@@ -16,9 +16,10 @@ mongoose.connect('mongodb+srv://admin:admin123@caloriecounter.78kht.mongodb.net/
 
 
 app.get("/", (req, res) => {
-    res.send("Hello, It's Eesa.")
+    res.send("Hello, It's Eesa."    )
 })
 
 // Configured server to listen on port 6000
 const PORT = 6000
 app.listen(6000, () => console.log(`Listening on port: ${PORT}`))
+//hello
