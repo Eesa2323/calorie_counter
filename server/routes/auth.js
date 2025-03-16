@@ -2,8 +2,11 @@
 const express = require('express')
 const router = express.Router()
 const bcrypt = require('bcrypt')
+const jwt = require('jsonwebtoken');
+const {User} = require('../models/User')
 
-// ELLO
+const JWT_SECRET = 'RANDOM_SECRET'
+
 router.post("/signup", async (req, res) => {
     const {username, email, password} = req.body
     if (!username|| !password || !email) return res.status(400).send('Could not signup')
@@ -27,7 +30,8 @@ router.post("/signup", async (req, res) => {
     })
     await user.save()
 
-    res.send(user)
+    const token = generteJWT(user)
+    res.header('x-auth-token', token).send(user)
 })
 
 
@@ -41,7 +45,15 @@ router.post("/login", async (req, res) => {
     const validPassword = await bcrypt.compare(password, user.password)
     if (!validPassword) return res.status(400).send('Could not match passwords')
 
-    res.send('Logged in')
+    const token = generteJWT(user)
+    res.header('x-auth-token', token).send('Logged in')
 })
+
+
+
+function generteJWT(user) {
+    const token = jwt.sign({_id: user._id, username: user.username}, JWT_SECRET)
+    return token
+}
 
 module.exports = router
