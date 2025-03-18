@@ -26,4 +26,11 @@ app.get("/", [auth], (req, res) => {
 
 // Configured server to listen on port 6000
 const PORT = 6000
+<<<<<<< HEAD
 app.listen(PORT, () => console.log(`Listening on port: ${PORT}`))
+=======
+app.listen(6000, () => console.log(`Listening on port: ${PORT}`))
+//hello
+//test cimmiting
+//maha
+>>>>>>> cb26e151466700939d220e12583c10b9c89eddb9
