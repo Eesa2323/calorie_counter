@@ -16,9 +16,9 @@ mongoose.connect('mongodb+srv://admin:admin123@caloriecounter.78kht.mongodb.net/
     .then(() => console.log('Database connected'))
     .catch((err) => console.log(err))
 
-app.use(express.json())
+app.use(express.json())    
 app.use(express.urlencoded({extended: true}))
-app.use("/api/auth", authRouter)
+app.use("/api/auth", authRouter)   
 
 app.get("/", [auth], (req, res) => {
     res.send("Hello, It's Eesa.")
