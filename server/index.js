@@ -20,7 +20,6 @@ app.use(express.json())
 app.use(express.urlencoded({extended: true}))
 app.use("/api/auth", authRouter)
 
-
 app.get("/", [auth], (req, res) => {
     res.send("Hello, It's Eesa.")
 })
