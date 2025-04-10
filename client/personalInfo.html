@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="_css/style.css">
+    <title>Home</title>
+</head>
+<body>
+    <header id="banner">
+        <img class="logo" src="_images/logo.PNG" alt="" title="company logo">
+        <h1>Kalorie</h1>
+        <p class="tagline">Stay Healthy</p>
+        <nav class="navbar">
+            <ul class="menu">
+                <li class="item"><a href="home.html" class="link">Home</a></li>
+                <li class="item"><a href="personalInfo.html" class="link">Personal Information</a></li>
+                <li class="item"><a href="#" class="link">Plan</a></li>
+                <li class="item"><a href="#" class="link">Progress</a></li>
+                <li class="item"><a href="#" class="link">Sign Up</a></li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </nav>
+    </header>
+
+    <div id="container">
+        <section id="food">
+            <!-- Breakfast Dropdown -->
+            <div class="dropdown-buttons-container">
+                <div class="dropdown">
+                    <button onclick="toggleDropdown(event, 'breakfast')" class="dropbtn">Breakfast</button>
+                    <div class="dropdown-content" id="dropdown-breakfast">
+                        <div class="dropdown-item">
+                            <span>Chicken</span>
+                            <input  class="breakfast_item" type="number" min="0" value="0" data-food="Chicken">
+                        </div>
+                        <div class="dropdown-item">
+                            <span>Rice</span>
+                            <input class="breakfast_item" type="number" min="0" value="0" data-food="Rice">
+                        </div>
+                        <div class="dropdown-item">
+                            <span>Potato</span>
+                            <input class="breakfast_item" type="number" min="0" value="0" data-food="Potato">
+                        </div>
+                        <div class="dropdown-item">
+                            <span>Egg</span>
+                            <input class="breakfast_item" type="number" min="0" value="0" data-food="Egg">
+                        </div>
+                        <div class="dropdown-item">
+                            <span>Avocado</span>
+                            <input class="breakfast_item" type="number" min="0" value="0" data-food="Avocado">
+                        </div>
+                        <button onclick="submitSelection(event, 'breakfast')">Add</button>
+                    </div>
+                </div>
+        
+                <!-- Lunch Dropdown -->
+                <div class="dropdown">
+                    <button onclick="toggleDropdown(event, 'lunch')" class="dropbtn">Lunch</button>
+                    <div class="dropdown-content" id="dropdown-lunch">
+                        <div class="dropdown-item">
+                            <span>Chicken</span>
+                            <input type="number" min="0" value="0" data-food="Chicken">
+                        </div>
+                        <div class="dropdown-item">
+                            <span>Rice</span>
+                            <input type="number" min="0" value="0" data-food="Rice">
+                        </div>
+                        <div class="dropdown-item">
+                            <span>Potato</span>
+                            <input type="number" min="0" value="0" data-food="Potato">
+                        </div>
+                        <div class="dropdown-item">
+                            <span>Egg</span>
+                            <input type="number" min="0" value="0" data-food="Egg">
+                        </div>
+                        <div class="dropdown-item">
+                            <span>Avocado</span>
+                            <input type="number" min="0" value="0" data-food="Avocado">
+                        </div>
+                        <button onclick="submitSelection(event, 'lunch')">Add</button>
+                    </div>
+                </div>
+        
+                <!-- Dinner Dropdown -->
+                <div class="dropdown">
+                    <button onclick="toggleDropdown(event, 'dinner')" class="dropbtn">Dinner</button>
+                    <div class="dropdown-content" id="dropdown-dinner">
+                        <div class="dropdown-item">
+                            <span>Chicken</span>
+                            <input type="number" min="0" value="0" data-food="Chicken">
+                        </div>
+                        <div class="dropdown-item">
+                            <span>Rice</span>
+                            <input type="number" min="0" value="0" data-food="Rice">
+                        </div>
+                        <div class="dropdown-item">
+                            <span>Potato</span>
+                            <input type="number" min="0" value="0" data-food="Potato">
+                        </div>
+                        <div class="dropdown-item">
+                            <span>Egg</span>
+                            <input type="number" min="0" value="0" data-food="Egg">
+                        </div>
+                        <div class="dropdown-item">
+                            <span>Avocado</span>
+                            <input type="number" min="0" value="0" data-food="Avocado">
+                        </div>
+                        <button onclick="submitSelection(event, 'dinner')">Add</button>
+                    </div>
+                </div>
+        
+                <!-- Snacks Dropdown -->
+                <div class="dropdown">
+                    <button onclick="toggleDropdown(event, 'snacks')" class="dropbtn">Snacks</button>
+                    <div class="dropdown-content" id="dropdown-snacks">
+                        <div class="dropdown-item">
+                            <span>Crisps</span>
+                            <input type="number" min="0" value="0" data-food="Crisps">
+                        </div>
+                        <div class="dropdown-item">
+                            <span>Apple</span>
+                            <input type="number" min="0" value="0" data-food="Apple">
+                        </div>
+                        <div class="dropdown-item">
+                            <span>Chocolate</span>
+                            <input type="number" min="0" value="0" data-food="Chocolate">
+                        </div>
+                        <div class="dropdown-item">
+                            <span>Orange</span>
+                            <input type="number" min="0" value="0" data-food="Orange">
+                        </div>
+                        <div class="dropdown-item">
+                            <span>Banana</span>
+                            <input type="number" min="0" value="0" data-food="Banana">
+                        </div>
+                        <button onclick="submitSelection(event, 'snacks')">Add</button>
+                    </div>
+                </div>
+        
+                <!-- Selected items display -->
+                <div id="selected-items"></div>
+            </div>
+        </section>
+        
+
+
+        <section id="calorie-display">
+            <img class="logo" src="_images/image4.jpg" alt="" title="calorie display" class="calorie-img">
+            <p class="motivational-quote">Stay hydrated and healthy!</p>
+        </section>
+
+
+
+        <section id="water">
+            <div class="water-grid">
+                <img src="_image/image3.PNG" class="glass" alt="Empty glass" data-index="1">
+                <img src="_image/image3.PNG" class="glass" alt="Empty glass" data-index="2">
+                <img src="_image/image3.PNG" class="glass" alt="Empty glass" data-index="3">
+
+                <img src="_image/image3.PNG" class="glass" alt="Empty glass" data-index="4">
+                <img src="_image/image3.PNG" class="glass" alt="Empty glass" data-index="5">
+                <img src="_image/image3.PNG" class="glass" alt="Empty glass" data-index="6">
+
+                <img src="_image/image3.PNG" class="glass" alt="Empty glass" data-index="7">
+                <img src="_image/image3.PNG" class="glass" alt="Empty glass" data-index="8">
+                <img src="_image/image3.PNG" class="glass" alt="Empty glass" data-index="9">
+
+                <img src="_image/image3.PNG" class="glass" alt="Empty glass" data-index="10">
+                <img src="_image/image3.PNG" class="glass" alt="Empty glass" data-index="11">
+                <img src="_image/image3.PNG" class="glass" alt="Empty glass" data-index="12">
+            </div>
+        </section>
+    </div>
+    <script src="_js/script.js"></script>
+</body>
+</html>
