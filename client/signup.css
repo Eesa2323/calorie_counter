@@ -1,0 +1,182 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to top right, #00ad25, #a18100);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+.design-square {
+    position: absolute;
+    width: 758px;
+    height: 906px;
+    background: rgba(255, 255, 255, 0.14);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    border-radius: 30px;
+    transform: rotate(64deg);
+    top: -310px;
+    left: -620px;
+}
+.design-square-top-right-second {
+    position: absolute;
+    width: 758px;
+    height: 906px;
+    background: rgba(0, 0, 0, 0.14);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    border-radius: 30px;
+    transform: rotate(60deg);
+    top: -100px;
+    right: -700px;
+}
+.design-square-bottom {
+    position: absolute;
+    width: 758px;
+    height: 906px;
+    background: rgba(255, 255, 255, 0.14);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    border-radius: 30px;
+    transform: rotate(60deg);
+    bottom: -700px;
+    left: 40%;
+    transform: translateX(-50%) rotate(60deg);
+}
+.container {
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    text-align: center;
+    position: relative;
+    z-index: 1;
+    height: 85%;
+    width: 450px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+}
+.input-group .asterisk {
+    color: red;
+}
+.signup-title {
+    font-size: 45px;
+    position: relative;
+
+    font-family: 'Verdana', sans-serif;
+}
+.signup-form {
+    width: 100%;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: -30px;
+}
+.input-group {
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: calc(100% - 140px);
+    margin-left: 70px;
+}
+.input-group label {
+    align-self: auto;
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: -7px;
+}
+.error-message{
+    font-size: 12px;
+    position: absolute; 
+    color: red;
+    margin-bottom: -90px;
+
+
+}
+.confirm-error-message{
+    font-size: 12px;
+    position: absolute;
+    left: 37%;
+    color: red;
+    margin-bottom: -350px;
+
+}
+
+.input-group .material-icons {
+    position: relative;
+    left: 8px; /* Adjust icon position */
+    top: 30%;
+    color: #707070; /* Icon color */
+    font-size: 20px;
+}
+
+.input-group .visibility-toggle {
+    position: relative;
+    top: -42%; 
+    left: 300px; 
+    cursor: pointer;
+    font-size: 20px;
+    color: #707070;
+}
+.input-group input {
+    width: calc(100% - 20px);
+    padding: 10px 10px 10px 35px; /* Left padding to avoid overlap with icon */
+    border: none;
+    border-bottom: 2px solid #c4c4c4;
+    font-family: 'Verdana', sans-serif;
+    font-size: 13px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 6px -6px rgba(0, 0, 0, 0.5);
+    outline: none;
+    color: #000000;
+}
+.input-group input::placeholder {
+    font-size: 15px;
+    color: #B1B1B1;
+    font-family: sans-serif;
+     
+}
+
+.input-group input:focus {
+    border-bottom: 2px solid #00b90f;
+    box-shadow: 0 4px 6px -6px rgba(212, 0, 255, 2);
+}
+.signup-btn {
+    background: linear-gradient(to right, #00ad25, #a18100);
+    color: white;
+    border: none;
+    padding: 10px;
+    width: calc(100% - 200px);
+    height: 55px; 
+    position: relative;
+    bottom: auto; 
+    margin-left: 30px;
+    margin: 0 auto; 
+    cursor: pointer;
+    font-size: 16px;
+    font: Segoe UI; 
+    font-weight: bold;
+    border-radius: 100px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+.signup-btn:hover {
+    transform: scale(1.1); /* Increases size by 10% */
+    transition: transform 0.2s ease-in-out; /* Smooth animation */
+    box-shadow: 0 4px 10px rgb(0, 0, 0);
+}
+.login-text {
+    margin-top: auto;
+    padding-top: 20px;
+    color: #B1B1B1;
+}
+.login-text a {
+    color: #00c3ff;
+    text-decoration: none;
+    font-weight: bold;
+}

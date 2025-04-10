@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+    <link rel="stylesheet" href="signup.css">
+    <script src="signup.js"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+</head>
+<body>
+    <div class="design-square"></div>
+    <div class="design-square-top-right-second"></div>
+    <div class="design-square-bottom"></div>
+    <div class="container">
+        <h2 class="signup-title">Sign Up</h2>
+        <form class="signup-form">
+            <div class="input-group">
+                <label for="username">&nbsp;&nbsp;Username<span class="asterisk"> *</span></label>
+                <span class="material-icons">person</span>
+                <input type="text" id="username" placeholder="Type your username" required>
+            </div>
+            <div class="input-group">
+                <label for="email">&nbsp;&nbsp;Email<span class="asterisk"> *</span></label>
+                <span class="material-icons">mail</span>
+                <input type="email" id="email" placeholder="Example@email.com" required>
+            </div>
+            <small id="password-error" class="error-message"></small>
+            <div class="input-group">
+                <label for="password">&nbsp;&nbsp;Password<span class="asterisk"> *</span></label>
+                <span class="material-icons">lock</span>
+                <input type="password" id="password" placeholder="Type your new Password" required oninput="validatePassword()">
+                <span class="material-icons visibility-toggle" onclick="togglePassword('password', this)">visibility_off</span>
+            </div>
+            <small id="password-match-error" class="confirm-error-message"></small>
+            <div class="input-group">
+                <label for="confirm-password">&nbsp;&nbsp;Confirm Password<span class="asterisk"> *</span></label>
+                <span class="material-icons">lock</span>
+                <input type="password" id="confirm-password" placeholder="Confirm your password" required oninput="validateConfirmPassword()">
+                <span class="material-icons visibility-toggle" onclick="togglePassword('confirm-password', this)">visibility_off</span>
+            </div>
+            <button type="submit" class="signup-btn">SIGN IN</button>
+        </form>
+        <p class="login-text">Already have an account? <a href="login.html">Log In</a></p>
+    </div>
+
+    
+</body>
+</html>

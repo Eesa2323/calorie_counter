@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Setup</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="Setup.css">
+    <script src="Setup.js"></script>
+</head>
+<body>
+    <div class="design-square"></div>
+    <div class="design-square-top-right-second"></div>
+    <div class="design-square-bottom"></div>
+
+    <div class="container">
+        <h1>Let's Get You Started</h1>
+
+        <!-- Step 1: Weight -->
+        <div class="setup-step" id="step-1">
+            <h2>What is your current weight?</h2>
+            <div class="input-group">
+                <input type="text" id="weight" placeholder="Enter weight" required>
+                <span class="unit">KG</span>
+            </div>
+            <button class="next-btn" onclick="nextStep(2)">Next</button>
+        </div>
+
+        <!-- Step 2: Target Weight -->
+        <div class="setup-step" id="step-2">
+            <h2>What is your target weight?</h2>
+            <div class="input-group">
+                <input type="text" id="target-weight" placeholder="Enter target weight" required>
+                <span class="unit">KG</span>
+            </div>
+            <div class="button-nav">
+                <span class="material-icons return-btn" onclick="prevStep(1)">keyboard_return</span>
+                <button class="next-btn" onclick="nextStep(3)">Next</button>
+            </div>
+        </div>
+
+        <!-- Step 3: Height -->
+        <div class="setup-step" id="step-3">
+            <h2>What is your height?</h2>
+            <div class="input-group">
+                <select id="height" size="5" required>
+                    <option value="" disabled selected hidden>- Please select an option -</option>
+                    <option value="4'0\"">4'0"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ft' inch"</option>
+                    <option value="4'1\"">4'1"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ft' inch"</option>
+                    <option value="4'2\"">4'2"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ft' inch"</option>
+                    <option value="4'3\"">4'3"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ft' inch"</option>
+                    <option value="4'4\"">4'4"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ft' inch"</option>
+                    <option value="4'5\"">4'5"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ft' inch"</option>
+                    <option value="4'6\"">4'6"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ft' inch"</option>
+                    <option value="4'7\"">4'7"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ft' inch"</option>
+                    <option value="4'8\"">4'8"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ft' inch"</option>
+                    <option value="4'9\"">4'9"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ft' inch"</option>
+                    <option value="4'10\"">4'10"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ft' inch"</option>
+                    <option value="4'11\"">4'11"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ft' inch"</option>
+                    <option value="5'0\"">5'0"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ft' inch"</option>
+                    <option value="5'1\"">5'1"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ft' inch"</option>
+                    <option value="5'2\"">5'2"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ft' inch"</option>
+                    <option value="5'3\"">5'3"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ft' inch"</option>
+                    <option value="5'4\"">5'4"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ft' inch"</option>
+                    <option value="5'5\"">5'5"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ft' inch"</option>
+                    <option value="5'6\"">5'6"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ft' inch"</option>
+                    <option value="5'7\"">5'7"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ft' inch"</option>
+                    <option value="5'8\"">5'8"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ft' inch"</option>
+                    <option value="5'9\"">5'9"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ft' inch"</option>
+                    <option value="5'10\"">5'10"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ft' inch"</option>
+                    <option value="5'11\"">5'11"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ft' inch"</option>
+                    <option value="6'0\"">6'0"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ft' inch"</option>
+                    <option value="6'1\"">6'1"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ft' inch"</option>
+                    <option value="6'2\"">6'2"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ft' inch"</option>
+                    <option value="6'3\"">6'3"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ft' inch"</option>
+                    <option value="6'4\"">6'4"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ft' inch"</option>
+                    <option value="6'5\"">6'5"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ft' inch"</option>
+                    <option value="6'6\"">6'6"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ft' inch"</option>
+                    <option value="6'7\"">6'7"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ft' inch"</option>
+                    <option value="6'8\"">6'8"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ft' inch"</option>
+                    <option value="6'9\"">6'9"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ft' inch"</option>
+                    <option value="6'10\"">6'10"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ft' inch"</option>
+                    <option value="6'11\"">6'11"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ft' inch"</option>
+                    <option value="7'0\"">7'0"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ft' inch"</option>
+                </select>
+            </div>
+            <div class="button-nav">
+                <span class="material-icons return-btn" onclick="prevStep(2)">keyboard_return</span>
+                <button class="next-btn" onclick="nextStep(4)">Next</button>
+            </div>
+        </div>
+
+        <!-- Step 4: Age -->
+        <div class="setup-step" id="step-4">
+            <h2>How old are you?</h2>
+            <div class="input-group">
+                <input type="number" id="age" placeholder="Enter age" required>
+            </div>
+            <div class="button-nav">
+                <span class="material-icons return-btn" onclick="prevStep(3)">keyboard_return</span>
+                <button class="next-btn" onclick="nextStep(5)">Next</button>
+            </div>
+        </div>
+
+        <!-- Step 5: Gender -->
+        <div class="setup-step" id="step-5">
+            <h2>Select your gender</h2>
+            <div class="gender-container">
+                <!-- Male Option -->
+                <label class="gender-block">
+                    <div class="gender-text">Male</div>
+                    <div class="gender-input-wrapper">
+                        <input type="radio" name="gender" value="male" required>
+                        <span class="custom-circle"></span>
+                        <span class="material-icons gender-icon">male</span>
+                    </div>
+                </label>
+            
+                <!-- Female Option (FIXED STRUCTURE) -->
+                <label class="gender-block">
+                    <div class="gender-text">Female</div>
+                    <div class="gender-input-wrapper">
+                        <input type="radio" name="gender" value="female" required>
+                        <span class="custom-circle"></span>
+                        <span class="material-icons gender-icon">female</span>
+                    </div>
+                </label>
+            </div>
+            <button class="next-btn" onclick="nextStep(6)">Finish</button>
+        </div>
+
+        <!-- Final Step: Confirmation -->
+        <div class="setup-step" id="step-6">
+            <h2>You're All Set!</h2>
+            <p>Your setup is complete. You can now proceed.</p>
+        </div>
+    </div>
+
+    <script src="Setup.js"></script>
+</body>
+</html>
