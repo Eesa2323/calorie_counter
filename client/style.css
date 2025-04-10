@@ -1,0 +1,273 @@
+*{
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+ 
+html {
+   background-color: #fffcc9;;
+}
+ 
+
+ 
+.logo {
+    float: left;
+    width: 100px;
+}
+ 
+li {
+    list-style: none;
+}
+ 
+#banner {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: #da9837;
+    padding: 20px;
+}
+ 
+#banner h1 {
+    margin-left: 130px;
+    font-size: 2.5em;
+    color: #fffcc9;
+}
+ 
+#banner p {
+    margin-left: 130px;
+    font-size: 1.25em;
+    color: #fffcc980;
+}
+ 
+a {
+    text-decoration: none;
+    color: #fffcc980;
+    transition: 0.5s ease;
+}
+ 
+.menu {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 30px;
+    position: fixed;
+    top: 52px;
+    right: 20px;
+   
+}
+ 
+a:hover {
+    color: #fffcc9;
+}
+ 
+.navbar {
+    width: 100%;
+    min-height: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+ 
+ 
+.hamburger {
+    display: none;
+    cursor: pointer;
+}
+ 
+.bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 5px 0;
+    transition: all 0.3s ease;
+    background-color: #fffcc9;
+}
+ 
+ 
+@media(max-width:800px) {
+    .hamburger {
+        display: block;
+        position: fixed;
+        top: 52px;
+        right: 20px;
+    }
+ 
+    .hamburger.active .bar:nth-child(2) {
+        opacity: 0;
+    }
+ 
+    .hamburger.active .bar:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+    }
+ 
+    .hamburger.active .bar:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+    }
+ 
+    .menu {
+        position: fixed;
+        left: -100%;
+        top: 120px;
+        gap: 0;
+        flex-direction: column;
+        background-color: #da9837;
+        width: 100%;
+        text-align: center;
+        transition: 0.3s;
+    }
+ 
+    .item {
+        margin: 15px 0;
+    }
+ 
+    .menu.active {
+        left: 0;
+    }
+}
+ 
+@media(max-width:530px) {
+    #banner p {
+        font-size: 1em;
+        margin-left: 120px;
+    }
+ 
+    .logo {
+        width: 80px;
+    }
+ 
+    #banner h1 {
+        margin-left: 100px;
+        font-size: 2em;
+    }
+ 
+    .menu {
+        top: 100px;
+    }
+}
+
+h2 {
+    font-size: 9em;
+  
+    color: #4a5c40;
+    display: flex;
+    position: fixed;
+    top: 110px;
+}
+
+
+.container {
+    display: flex;
+}
+.section1 {
+    width: 30%;
+    padding: 15px;
+    background: #da9837; 
+    border-style: solid;
+    border-radius: 40px;
+
+    display: flex;
+    position: fixed;
+    top: 350px;
+    margin: 10px;
+    text-align: left;
+    flex-direction: column;
+
+}
+
+label {
+    margin: 10px;
+    font-size: 25px;
+    display: block;
+}
+
+h3, h4, h5, h6, h7, h8{
+    margin: 10px;
+    font-size: 25px;
+}
+
+
+.section2 {
+    width: 30%;
+    padding: 15px;
+    background: #da9837; 
+    border-style: solid;
+    border-radius: 40px;
+
+    display: flex;
+    position: fixed;
+    top: 700px;
+    margin: 10px;
+    text-align: left;
+    flex-direction: column;
+
+}
+
+
+.section3 {
+    width: 30%;
+    padding: 15px;
+    background: #da9837; 
+    border-style: solid;
+    border-radius: 40px;
+
+    display: flex;
+    position: fixed;
+    top: 350px;
+    left: 600px;
+    margin: 10px;
+    
+    flex-direction: column;
+    
+
+}
+
+
+.calculate-btn {
+
+padding: 50px;
+position: fixed;
+float: right;
+bottom: 0;
+width: 200px;
+display: flex;
+text-align: center;
+ padding: 5px;
+
+
+}
+
+
+.calculate-btn:hover {
+    background-color: #daac67;
+}
+
+.food-image img {
+    width: 500px;
+    float: right;
+    margin-top: 500px;
+    font-size: 25px;
+}
+
+.textboxes {
+    width: 80px;
+    align-items: center;
+    padding: 5px;
+    border: 5px solid black;
+    border-width: 5px;
+    margin-left: 150px;
+    text-align: center;
+    float: right;
+}
+
+.dropdown {
+    left: 100px;
+    height: 30px;
+    border-width: 5px;
+    margin-left: 150px;
+    text-align: left;
+    float: right;
+    border: 5px solid black;
+}
+
+
