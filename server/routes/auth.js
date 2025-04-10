@@ -51,6 +51,7 @@ router.post("/login", async (req, res) => {
 
 
 
+
 function generteJWT(user) {
     const token = jwt.sign({_id: user._id, username: user.username}, JWT_SECRET)
     return token

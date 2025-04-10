@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personalised Plan</title>
+    <link rel="stylesheet" href="CSS/Styles.css">
+    <script defer src="Javascript/Javascript.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <header id="banner">
+        <img class="logo" src="images/logo.PNG" alt="company logo">
+        <h1 id="Kalorie">Kalorie</h1>
+        <p class="tagline">Stay Healthy</p>
+        <nav class="navbar">
+            <ul class="menu">
+                <li class="item"><a href="home.html" class="link">Home</a></li>
+                <li class="item"><a href="personalInfo.html" class="link">Personal Information</a></li>
+                <li class="item"><a href="#" class="link">Plan</a></li>
+                <li class="item"><a href="#" class="link">Progress</a></li>
+                <li class="item"><a href="#" class="link">Sign Up</a></li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </nav>
+    </header>
+ 
+    <main class="container">
+        <h1>Personalised Plan</h1>
+        <div class="grid-layout">
+            <section class="plan-details">
+                <h3>Your Plan</h3>
+                <p>According to your answers:</p>
+                <ul>
+                    <li>You need to consume <span id="calories">2409</span> kcal every day</li>
+                    <li>Exercise <span id="exercise">3</span> times a week for at least <span id="time">30</span> mins</li>
+                    <li>Limit sugary treats to <span id="limit">2</span> servings per week</li>
+                    <li>Replace sugary drinks with <span id="calorie-free-drinks">calorie-free drinks</span> as often as possible</li>
+                    <li>Get <span id="sleep">7-8</span> hours of sleep every night to aid recovery</li>
+                </ul>
+            </section>
+           
+            <section class="tracker">
+                <h3>Log your daily calorie intake</h3>
+                <input type="number" id="calorieInput" placeholder="Enter kcal">
+                <button id="logButton">Log</button>
+            </br></br></br>
+                <p>Current intake: <span id="loggedCalories">0</span> kcal</p>
+                <p id="statusMessage">Let's start tracking!</p>
+ 
+            </br>
+ 
+                <div class="progress-bar">
+                    <div id="progress"></div>
+                </div>
+            </section>
+           
+            <section class="chart-section">
+                <h3>Your Progress</h3>
+                <canvas id="calorieChart"></canvas>
+            </section>
+ 
+ 
+            <section class="runningImage">
+                <img class="runningImage" src="images/IMG_2050.jpg" alt="running Person Image">
+            </section>
+        </div>
+    </main>
+ 
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const calorieInput = document.getElementById("calorieInput");
+            const logButton = document.getElementById("logButton");
+            const loggedCalories = document.getElementById("loggedCalories");
+            const statusMessage = document.getElementById("statusMessage");
+            const progressBar = document.getElementById("progress");
+            const dailyGoal = 2409;
+            let totalCalories = 0;
+           
+            const ctx = document.getElementById("calorieChart").getContext("2d");
+            let calorieChart = new Chart(ctx, {
+                type: 'doughnut',
+                data: {
+                    labels: ["Consumed", "Remaining"],
+                    datasets: [{
+                        data: [0, dailyGoal],
+                        backgroundColor: ["#ff6384", "#36a2eb"],
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false
+                }
+            });
+           
+            logButton.addEventListener("click", function() {
+                const enteredCalories = parseInt(calorieInput.value);
+                if (!isNaN(enteredCalories) && enteredCalories > 0) {
+                    totalCalories += enteredCalories;
+                    loggedCalories.textContent = totalCalories;
+                    calorieInput.value = "";
+                   
+                    let percentage = (totalCalories / dailyGoal) * 100;
+                    progressBar.style.width = Math.min(percentage, 100) + "%";
+                   
+                    if (totalCalories < dailyGoal) {
+                        statusMessage.textContent = "Keep going! You're doing great!";
+                    } else {
+                        statusMessage.textContent = "Great job! You've met your goal!";
+                    }
+                   
+                    calorieChart.data.datasets[0].data = [totalCalories, Math.max(0, dailyGoal - totalCalories)];
+                    calorieChart.update();
+                } else {
+                    alert("Please enter a valid calorie amount.");
+                }
+            });
+        });
+    </script>
+</body>
+</html>
+ 
