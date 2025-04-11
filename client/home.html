@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="home.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <title>Home</title>
+</head>
+<body>
+    <header id="banner">
+        <img class="logo" src="_images/logo.PNG" alt="" title="company logo">
+        <h1>Kalorie</h1>
+        <p class="tagline">Stay Healthy</p>
+        <nav class="navbar">
+            <ul class="menu">
+                <li class="item"><a href="home.html" class="link">Home</a></li>
+                <li class="item"><a href="personalInfo.html" class="link">Personal Information</a></li>
+                <li class="item"><a href="#" class="link">Plan</a></li>
+                <li class="item"><a href="#" class="link">Progress</a></li>
+                <li class="item"><a href="#" class="link">Sign Up</a></li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </nav>
+    </header>
+
+    <div id="container">
+        <section id="food">
+            <!-- Breakfast Dropdown -->
+            <div class="dropdown-buttons-container">
+                <div class="dropdown">
+                    <button onclick="toggleDropdown(event, 'breakfast')" class="dropbtn">Breakfast</button>
+                    <div class="dropdown-content" id="dropdown-breakfast">
+                        <div class="dropdown-item">
+                            <span>Chicken</span>
+                            <input id="chicken"  class="breakfast_item" type="number" min="0" value="0" data-food="Chicken">
+                        </div>
+                        <div class="dropdown-item">
+                            <span>Rice</span>
+                            <input id="rice"   class="breakfast_item rice" type="number" min="0" value="0" data-food="Rice">
+                        </div>
+                        <div class="dropdown-item">
+                            <span>Potato</span>
+                            <input  id="potato" class="breakfast_item potato" type="number" min="0" value="0" data-food="Potato">
+                        </div>
+                        <div class="dropdown-item">
+                            <span>Egg</span>
+                            <input id="egg" class="breakfast_item egg" type="number" min="0" value="0" data-food="Egg">
+                        </div>
+                        <div class="dropdown-item">
+                            <span>Avocado</span>
+                            <input id="avocado" class="breakfast_item avocado" type="number" min="0" value="0" data-food="Avocado">
+                        </div>
+                        <button class="my_btn" onclick="submitSelection(event, 'breakfast')">Add</button>
+                    </div>
+                </div>
+        
+                <!-- Lunch Dropdown -->
+                <div class="dropdown">
+                    <button onclick="toggleDropdown(event, 'lunch')" class="dropbtn">Lunch</button>
+                    <div class="dropdown-content" id="dropdown-lunch">
+                        <div class="dropdown-item">
+                            <span >Chicken</span>
+                            <input id="chicken"  class="lunch_item" type="number" min="0" value="0" data-food="Chicken">
+                        </div>
+                        <div class="dropdown-item">
+                            <spann>Rice</span>
+                            <input id="rice" class="lunch_item"  type="number" min="0" value="0" data-food="Rice">
+                        </div>
+                        <div class="dropdown-item">
+                            <span>Potato</span>
+                            <input id="potato"  class="lunch_item"  type="number" min="0" value="0" data-food="Potato">
+                        </div>
+                        <div class="dropdown-item">
+                            <span>Egg</span>
+                            <input class="lunch_item"  type="number" min="0" value="0" data-food="Egg">
+                        </div>
+                        <div class="dropdown-item">
+                            <span>Avocado</span>
+                            <input id="avocado" class="lunch_item"  type="number" min="0" value="0" data-food="Avocado">
+                        </div>
+                        <button  class="my_btn"  onclick="submitSelection(event, 'lunch')">Add</button>
+                    </div>
+                </div>
+        
+                <!-- Dinner Dropdown -->
+                <div class="dropdown">
+                    <button onclick="toggleDropdown(event, 'dinner')" class="dropbtn">Dinner</button>
+                    <div class="dropdown-content" id="dropdown-dinner">
+                        <div class="dropdown-item">
+                            <span>Chicken</span>
+                            <input id="chicken" class="dinner_item"  type="number" min="0" value="0" data-food="Chicken">
+                        </div>
+                        <div class="dropdown-item">
+                            <span>Rice</span>
+                            <input id="rice" class="dinner_item"  type="number" min="0" value="0" data-food="Rice">
+                        </div>
+                        <div class="dropdown-item">
+                            <span>Potato</span>
+                            <input id="potato" class="dinner_item"  type="number" min="0" value="0" data-food="Potato">
+                        </div>
+                        <div class="dropdown-item">
+                            <span>Egg</span>
+                            <input   id="egg" class="dinner_item"  type="number" min="0" value="0" data-food="Egg">
+                        </div>
+                        <div class="dropdown-item">
+                            <span>Avocado</span>
+                            <input  id="avocado"   class="dinner_item"  type="number" min="0" value="0" data-food="Avocado">
+                        </div>
+                        <button  class="my_btn"  onclick="submitSelection(event, 'dinner')">Add</button>
+                    </div>
+                </div>
+        
+                <!-- Snacks Dropdown -->
+                <div class="dropdown">
+                    <button onclick="toggleDropdown(event, 'snacks')" class="dropbtn">Snacks</button>
+                    <div class="dropdown-content" id="dropdown-snacks">
+                        <div class="dropdown-item">
+                            <span>Crisps</span>
+                            <input type="number" min="0" value="0" data-food="Crisps">
+                        </div>
+                        <div class="dropdown-item">
+                            <span>Apple</span>
+                            <input type="number" min="0" value="0" data-food="Apple">
+                        </div>
+                        <div class="dropdown-item">
+                            <span>Chocolate</span>
+                            <input type="number" min="0" value="0" data-food="Chocolate">
+                        </div>
+                        <div class="dropdown-item">
+                            <span>Orange</span>
+                            <input type="number" min="0" value="0" data-food="Orange">
+                        </div>
+                        <div class="dropdown-item">
+                            <span>Banana</span>
+                            <input type="number" min="0" value="0" data-food="Banana">
+                        </div>
+                        <button  class="my_btn"  onclick="submitSelection(event, 'snacks')">Add</button>
+                    </div>
+                </div>
+        
+                <!-- Selected items display -->
+                <div id="selected-items"></div>
+            </div>
+        </section>
+        
+
+       
+        <section class="tracker">
+            <h3>Log your daily calorie intake</h3>
+            <input type="number" id="calorieInput" placeholder="Enter kcal">
+            <button id="logButton">Log</button>
+        </br></br></br>
+            <p>Current intake: <span id="loggedCalories">0</span> kcal</p>
+            <p id="statusMessage">Let's start tracking!</p>
+
+        </br>
+
+            <div class="progress-bar">
+                <div id="progress"></div>
+            </div>
+        </section>
+       
+        <section class="chart-section">
+            <h3>Your Progress</h3>
+            <canvas id="calorieChart"></canvas>
+        </section>
+
+
+
+
+        <section id="water">
+            <div class="water-grid">
+                <img src="_images/image3.PNG" class="glass" alt="Empty glass" data-index="1">
+                <img src="_images/image3.PNG" class="glass" alt="Empty glass" data-index="2">
+                <img src="_images/image3.PNG" class="glass" alt="Empty glass" data-index="3">
+
+                <img src="_images/image3.PNG" class="glass" alt="Empty glass" data-index="4">
+                <img src="_images/image3.PNG" class="glass" alt="Empty glass" data-index="5">
+                <img src="_images/image3.PNG" class="glass" alt="Empty glass" data-index="6">
+
+                <img src="_images/image3.PNG" class="glass" alt="Empty glass" data-index="7">
+                <img src="_images/image3.PNG" class="glass" alt="Empty glass" data-index="8">
+                <img src="_images/image3.PNG" class="glass" alt="Empty glass" data-index="9">
+
+                <img src="_images/image3.PNG" class="glass" alt="Empty glass" data-index="10">
+                <img src="_images/image3.PNG" class="glass" alt="Empty glass" data-index="11">
+                <img src="_images/image3.PNG" class="glass" alt="Empty glass" data-index="12">
+            </div>
+        </section>
+    </div>
+    <script src="./script.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const calorieInput = document.getElementById("calorieInput");
+            const logButton = document.getElementById("logButton");
+            const loggedCalories = document.getElementById("loggedCalories");
+            const statusMessage = document.getElementById("statusMessage");
+            const progressBar = document.getElementById("progress");
+            const dailyGoal = 2409;
+
+            console.log("Hello")
+            let totalCalories = 0;
+           
+            const ctx = document.getElementById("calorieChart").getContext("2d");
+            let calorieChart = new Chart(ctx, {
+                type: 'doughnut',
+                data: {
+                    labels: ["Consumed", "Remaining"],
+                    datasets: [{
+                        data: [0, dailyGoal],
+                        backgroundColor: ["#ff6384", "#36a2eb"],
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false
+                }
+            });
+
+
+           
+            logButton.addEventListener("click", function() {
+                const enteredCalories = parseInt(calorieInput.value);
+                if (!isNaN(enteredCalories) && enteredCalories > 0) {
+                    totalCalories += enteredCalories;
+                    loggedCalories.textContent = totalCalories;
+                    calorieInput.value = "";
+                    
+                    let percentage = (totalCalories / dailyGoal) * 100;
+                    progressBar.style.width = Math.min(percentage, 100) + "%";
+            
+                    if (totalCalories < dailyGoal) {
+                        statusMessage.textContent = "Keep going! You're doing great!";
+                    } else {
+                        statusMessage.textContent = "Great job! You've met your goal!";
+                    }
+                   
+                    calorieChart.data.datasets[0].data = [totalCalories, Math.max(0, dailyGoal - totalCalories)];
+                    calorieChart.update();
+                } else {
+                    alert("Please enter a valid calorie amount.");
+                }
+            });
+        });
+    </script>
+</body>
+</html>

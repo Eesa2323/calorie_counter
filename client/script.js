@@ -1,5 +1,14 @@
 // hamburger menu
 
+// Per 100g
+const CALORIE_INFO = {
+    chicken: 115,
+    rice: 270,
+    potato: 200,
+    egg: 200,
+    avocado: 140
+}
+
 const hamburger = document.querySelector('.hamburger');
 const navMenu = document.querySelector('.menu');
 
@@ -20,11 +29,16 @@ function toggleDropdown(event, mealType) {
     // Get the specific dropdown content based on the mealType
     const dropdownContent = document.getElementById(`dropdown-${mealType}`);
 
+    let cTotal = 0
     const numberInputs = document.querySelectorAll('input[type="number"]');
+    numberInputs.forEach((i) => {
+        const cal = CALORIE_INFO[i.id]
+        cTotal += (cal * i.value)
+    })
 
-    const test = document.getElementsByClassName("breakfast_item")
-    console.log(test)
     
+
+    const test = document.getElementsByClassName("breakfast_item")    
     dropdownContent.classList.toggle("show");
 }
 
@@ -44,6 +58,9 @@ function submitSelection(event, mealType) {
 
     // Get the specific dropdown content based on the mealType
     const dropdownContent = document.getElementById(`dropdown-${mealType}`);
+        
+    const inputValues = document.getElementsByClassName(`${mealType}_item`)
+    console.log(inputValues)
     
     // Loop through all dropdown items and get the quantity for each food item
     dropdownContent.querySelectorAll(".dropdown-item input").forEach(input => {
@@ -55,8 +72,7 @@ function submitSelection(event, mealType) {
             selectedItemsDiv.appendChild(item);
         }
     });   
-    console.log(mealType)
-    console.log(event);
+  
     
 
     // Close dropdown after adding selection
@@ -66,6 +82,7 @@ function submitSelection(event, mealType) {
 
 // water switch
 document.addEventListener("DOMContentLoaded", function() {
+    
     const glasses = document.querySelectorAll(".glass");
     
     // Loop through each glass and add a click event listener
@@ -84,3 +101,4 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     });
 });
+

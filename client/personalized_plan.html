@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Personalised Plan</title>
-    <link rel="stylesheet" href="CSS/Styles.css">
+    <link rel="stylesheet" href="personalized_plan.css">
     <script defer src="Javascript/Javascript.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
@@ -97,7 +97,7 @@
                 }
             });
            
-            logButton.addEventListener("click", function() {
+            logButton.addEventListener("add_meals", function() {
                 const enteredCalories = parseInt(calorieInput.value);
                 if (!isNaN(enteredCalories) && enteredCalories > 0) {
                     totalCalories += enteredCalories;
@@ -123,4 +123,3 @@
     </script>
 </body>
 </html>
- 

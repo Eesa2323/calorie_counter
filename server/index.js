@@ -4,7 +4,7 @@ const app = express()
 const cors = require('cors')
 const mongoose = require('mongoose')
 const authRouter =require('./routes/auth')
-const auth = require('../middleware/auth')
+const auth = require('./middleware/auth')
 
 // Setup middleware for the express routing and allow for authentication token to be passed as header
 app.use(express.json())
@@ -19,10 +19,6 @@ mongoose.connect('mongodb+srv://admin:admin123@caloriecounter.78kht.mongodb.net/
 app.use(express.json())    
 app.use(express.urlencoded({extended: true}))
 app.use("/api/auth", authRouter)   
-
-app.get("/", [auth], (req, res) => {
-    res.send("Hello, It's Eesa.")
-})
 
 // Configured server to listen on port 6000
 const PORT = 6000
