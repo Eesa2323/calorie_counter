@@ -37,8 +37,10 @@ function toggleDropdown(event, mealType) {
     })
 
     
+    const calorieChart = document.getElementById("calorieChart")
+    console.log(calorieChart.dataset)
 
-    const test = document.getElementsByClassName("breakfast_item")    
+
     dropdownContent.classList.toggle("show");
 }
 
