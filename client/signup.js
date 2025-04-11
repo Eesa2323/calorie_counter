@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
     const form = document.querySelector(".signup-form");
 
-    form.addEventListener("submit", async function(event) {
+    form.addEventListener("submit", function(event) {
         event.preventDefault();
 
         const username = document.getElementById("username").value.trim();
@@ -14,52 +14,57 @@ document.addEventListener("DOMContentLoaded", () => {
         // Password strength regex
         const passwordRegex = /^(?=.*[0-9])(?=.*[!@#$%^&*])[A-Za-z\d!@#$%^&*]{10,}$/;
 
+        // Clear previous errors
+        passwordError.textContent = "";
+        matchError.textContent = "";
+        document.querySelectorAll("input").forEach(input => input.classList.remove("invalid"));
+
         // Validate fields
-        if (!username || !email || !password || !confirmPassword) {
+        let valid = true;
+
+        if (!username) {
+            document.getElementById("username").classList.add("invalid");
+            valid = false;
+        }
+
+        if (!email) {
+            document.getElementById("email").classList.add("invalid");
+            valid = false;
+        }
+
+        if (!password) {
+            document.getElementById("password").classList.add("invalid");
+            valid = false;
+        }
+
+        if (!confirmPassword) {
+            document.getElementById("confirm-password").classList.add("invalid");
+            valid = false;
+        }
+
+        if (!valid) {
             alert("Please fill out all fields.");
             return;
         }
 
         if (!passwordRegex.test(password)) {
             passwordError.textContent = "Password must be at least 10 characters long and contain a number & special character.";
-            passwordError.style.color = "red";
+            document.getElementById("password").classList.add("invalid");
             return;
-        } else {
-            passwordError.textContent = "";
         }
 
         if (password !== confirmPassword) {
             matchError.textContent = "Passwords do not match!";
-            matchError.style.color = "red";
+            document.getElementById("confirm-password").classList.add("invalid");
             return;
-        } else {
-            matchError.textContent = "";
         }
 
-        // Send to backend
-        try {
-            const response = await fetch("http://localhost:6000/api/auth/signup", {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({ username, email, password })
-            });
-
-            const result = await response.text();
-
-            if (response.ok) {
-                alert("Sign up successful!");
-                window.location.href = "setup.html"; // ✅ redirect to setup
-            } else {
-                alert(result); // backend message (email/username already in use)
-            }
-        } catch (err) {
-            console.error("Signup error:", err);
-            alert("An error occurred during signup.");
-        }
+       
+        window.location.href = "Setup.html";
     });
 });
 
-// Toggle password visibility (for both password + confirm password)
+// Toggle password visibility
 function togglePassword(inputId, icon) {
     let input = document.getElementById(inputId);
     if (input.type === "password") {
@@ -71,7 +76,7 @@ function togglePassword(inputId, icon) {
     }
 }
 
-// Validate password strength live
+// Live validation: Password strength
 function validatePassword() {
     let password = document.getElementById("password").value;
     let errorMessage = document.getElementById("password-error");
@@ -86,7 +91,7 @@ function validatePassword() {
     }
 }
 
-// Validate password match live
+// Live validation: Confirm password
 function validateConfirmPassword() {
     let password = document.getElementById("password").value;
     let confirmPassword = document.getElementById("confirm-password").value;
