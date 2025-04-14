@@ -3,10 +3,15 @@
 // Per 100g
 const CALORIE_INFO = {
     chicken: 115,
-    rice: 270,
+    rice: 210,
     potato: 200,
     egg: 200,
-    avocado: 140
+    avocado: 140,
+    orange: 100,
+    crisps: 250,
+    chocolate: 270,
+    apple: 120,
+    banana: 170,
 }
 
 const hamburger = document.querySelector('.hamburger');
@@ -29,17 +34,6 @@ function toggleDropdown(event, mealType) {
     // Get the specific dropdown content based on the mealType
     const dropdownContent = document.getElementById(`dropdown-${mealType}`);
 
-    let cTotal = 0
-    const numberInputs = document.querySelectorAll('input[type="number"]');
-    numberInputs.forEach((i) => {
-        const cal = CALORIE_INFO[i.id]
-        cTotal += (cal * i.value)
-    })
-
-    
-    const calorieChart = document.getElementById("calorieChart")
-    console.log(calorieChart.dataset)
-
 
     dropdownContent.classList.toggle("show");
 }
@@ -60,6 +54,33 @@ function submitSelection(event, mealType) {
 
     // Get the specific dropdown content based on the mealType
     const dropdownContent = document.getElementById(`dropdown-${mealType}`);
+
+
+    let cTotal = 0
+    const numberInputs = document.querySelectorAll('input[type="number"]');
+    numberInputs.forEach((i) => {
+
+        console.log(`val: ${i.id}` + i.value);
+        
+
+        const cal = CALORIE_INFO[i.id]
+        if (!cal) return
+        cTotal += (cal * i.value)
+
+
+    })
+
+    
+    if (window.calorieChart) {
+        window.calorieChart.data.datasets[0].data = [
+            cTotal, 
+            Math.max(0, window.dailyGoal - cTotal)
+        ];
+        window.calorieChart.update();
+    } else {
+        console.warn("Calorie chart instance is not defined.");
+    }
+
         
     const inputValues = document.getElementsByClassName(`${mealType}_item`)
     console.log(inputValues)
@@ -94,9 +115,12 @@ document.addEventListener("DOMContentLoaded", function() {
             
             // Switch the image
             if (isFull) {
+                console.log('Here')
                 // If it's already a full glass, switch it to an empty glass
                 this.src = "_images/image2.PNG";
             } else {
+                console.log('Other');
+                
                 // Otherwise, switch it to a full glass
                 this.src = "_images/image3.PNG";
             }

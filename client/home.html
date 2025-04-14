@@ -5,8 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="home.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-
-=======
     <title>Home</title>
 </head>
 <body>
@@ -21,7 +19,6 @@
                 <li class="item"><a href="#" class="link">Plan</a></li>
                 <li class="item"><a href="#" class="link">Progress</a></li>
                 <li class="item"><a href="#" class="link">Sign Up</a></li>
-=======
                 <li class="item"><a href="personalized_plan.html" class="link">Plan</a></li>
                 <li class="item"><a href="#" class="link">Progress</a></li>
                 <li class="item"><a href="signup.html" class="link">Sign Up</a></li>
@@ -127,23 +124,23 @@
                     <div class="dropdown-content" id="dropdown-snacks">
                         <div class="dropdown-item">
                             <span>Crisps</span>
-                            <input type="number" min="0" value="0" data-food="Crisps">
+                            <input id="crisps" type="number" min="0" value="0" data-food="Crisps">
                         </div>
                         <div class="dropdown-item">
                             <span>Apple</span>
-                            <input type="number" min="0" value="0" data-food="Apple">
+                            <input id="apple" type="number" min="0" value="0" data-food="Apple">
                         </div>
                         <div class="dropdown-item">
                             <span>Chocolate</span>
-                            <input type="number" min="0" value="0" data-food="Chocolate">
+                            <input id="chocolate" type="number" min="0" value="0" data-food="Chocolate">
                         </div>
                         <div class="dropdown-item">
                             <span>Orange</span>
-                            <input type="number" min="0" value="0" data-food="Orange">
+                            <input id="orange" type="number" min="0" value="0" data-food="Orange">
                         </div>
                         <div class="dropdown-item">
                             <span>Banana</span>
-                            <input type="number" min="0" value="0" data-food="Banana">
+                            <input id="banana" type="number" min="0" value="0" data-food="Banana">
                         </div>
                         <button  class="my_btn"  onclick="submitSelection(event, 'snacks')">Add</button>
                     </div>
@@ -199,6 +196,8 @@
             </div>
         </section>
     </div>
+    <script src="./home.js"></script>
+
     <script src="./script.js"></script>
     <script>
         document.addEventListener("DOMContentLoaded", function() {
@@ -207,13 +206,13 @@
             const loggedCalories = document.getElementById("loggedCalories");
             const statusMessage = document.getElementById("statusMessage");
             const progressBar = document.getElementById("progress");
-            const dailyGoal = 2409;
+            window.dailyGoal = 3500;
 
             console.log("Hello")
             let totalCalories = 0;
            
             const ctx = document.getElementById("calorieChart").getContext("2d");
-            let calorieChart = new Chart(ctx, {
+            window.calorieChart = new Chart(ctx, {
                 type: 'doughnut',
                 data: {
                     labels: ["Consumed", "Remaining"],
