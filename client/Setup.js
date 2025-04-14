@@ -43,6 +43,12 @@ function nextStep(step) {
             return;
         }
     }
+    // If it's the final step (6), redirect to home.html after short delay
+  if (step === 6) {
+    setTimeout(() => {
+      window.location.href = "home.html";
+    }, 1500); // Adjust delay as needed (e.g. 1.5 seconds)
+  }
 
     currentStep = step;
     showStep(currentStep);
