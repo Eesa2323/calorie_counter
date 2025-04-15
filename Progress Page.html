@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Progress</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap" rel="stylesheet">
+    <style>
+        /* START OF NAV BAR*/
+    *{
+        margin: 0;
+        padding: 0;
+        border: 0;
+        font-family: 'Times New Roman', Times, serif;
+    }
+    
+    html {
+        background-color: #fffcc9;
+    }
+    
+    .logo {
+        float: left;
+        width: 100px;
+    }
+    
+    li {
+        list-style: none;
+    }
+
+    #banner {
+        position: sticky;
+        top: 0;
+        width: 100%;
+        background-color: #da9837;
+        padding: 20px;
+    }
+    
+    #banner h1 {
+        margin-left: 130px;
+        font-size: 2.5em;
+        color: #fffcc9;
+    }
+    
+    #banner p {
+        margin-left: 130px;
+        font-size: 1.25em;
+        color: #fffcc980;
+    }
+    
+    a {
+        text-decoration: none;
+        color: #fffcc980;
+        transition: 0.5s ease;
+    }
+    
+    .menu {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 30px;
+        position: fixed;
+        top: 52px;
+        right: 20px;
+    }
+
+    a:hover {
+        color: #fffcc9;
+    }
+    
+    .navbar {
+        width: 100%;
+        min-height: 10px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    
+    
+    .hamburger {
+        display: none;
+        cursor: pointer;
+    }
+    
+    .bar {
+        display: block;
+        width: 25px;
+        height: 3px;
+        margin: 5px 0;
+        transition: all 0.3s ease;
+        background-color: #fffcc9;
+    }
+
+    @media(max-width:800px) {
+        .hamburger {
+            display: block;
+            position: fixed;
+            top: 52px;
+            right: 20px;
+        }
+    
+        .hamburger.active .bar:nth-child(2) {
+            opacity: 0;
+        }
+    
+        .hamburger.active .bar:nth-child(1) {
+            transform: translateY(8px) rotate(45deg);
+        }
+    
+        .hamburger.active .bar:nth-child(3) {
+            transform: translateY(-8px) rotate(-45deg);
+        }
+    
+        .menu {
+            position: fixed;
+            left: -100%;
+            top: 120px;
+            gap: 0;
+            flex-direction: column;
+            background-color: #da9837;
+            width: 100%;
+            text-align: center;
+            transition: 0.3s;
+        }
+    
+        .item {
+            margin: 15px 0;
+        }
+    
+        .menu.active {
+            left: 0;
+        }
+        
+    }
+    
+    @media(max-width:530px) {
+        #banner p {
+            font-size: 1em;
+            margin-left: 120px;
+        }
+    
+        .logo {
+            width: 80px;
+        }
+    
+        #banner h1 {
+            margin-left: 100px;
+            font-size: 2em;
+        }
+    
+        .menu {
+            top: 100px;
+        }
+    }
+    /* END OF NAVBAR */
+
+    /* START OF BODY*/
+    .content1 {
+            padding: 20px;
+            width: 50%;
+            float: left;
+            display: inline-block;
+    }
+
+    .progress-title {
+        font-size: 60px;
+        font-weight: bold;
+        color: #4a4a2c;
+        font-family: 'Patrick Hand', cursive;
+        display: block;
+    }
+
+    .graph-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 20px;
+        width:100%;
+        border: 10px solid #da9837;
+        margin-top:15px;
+        padding: 15px;
+        border-radius: 50px;
+        height: 500px;
+        display: inline-block;
+    }
+
+    .content2{
+        width: 43%;
+        margin-top: 115px;
+        margin-right: 30px;
+        float: right;
+    }
+
+    h1{
+        font-size: 40px;
+        font-weight: bold;
+        color: #4a4a2c;
+        font-family: 'Patrick Hand', cursive;
+        display: block;
+    }
+
+    .advice{
+        display: block;
+        height: 100%;
+        font-size: 20px;
+        font-weight: bold;
+        color: #4a4a2c;
+        font-family: 'Patrick Hand', cursive;
+        display: block;
+    }
+    </style>
+</head>
+<body>
+    <header id="banner">
+        <img class="logo" src="./logo.png" alt="" title="company logo">
+        <h1>Kalorie</h1>
+        <p class="tagline">Stay Healthy</p>
+        <nav class="navbar">
+            <ul class="menu">
+                <li class="item"><a href="home.html" class="link">Home</a></li>
+                <li class="item"><a href="personalInfo.html" class="link">Personal Information</a></li>
+                <li class="item"><a href="#" class="link">Plan</a></li>
+                <li class="item"><a href="#" class="link">Progress</a></li>
+                <li class="item"><a href="#" class="link">Sign Up</a></li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </nav>
+    </header>
+    <div class="content1">
+        <div class="progress-title">
+            Your Progress
+        </div>
+        <div class="graph-container">
+                <canvas id="progressChart"></canvas>
+        </div>
+    </div>
+    <div class="content2">
+        <h1>Some Information</h1>
+        <p class="advice">Hey there! I’ve been reviewing your weight graph, and I noticed something important: you’ve been doing an amazing job overall, but there’s been a small bump up recently. Let’s talk about what that means—and how to keep moving forward.
+
+            First of all, congratulations on the progress you’ve already made. Weight loss is a journey with ups and downs, and your overall trend has been moving in the right direction. That’s something to be proud of! Seeing a small gain or a plateau on the scale can be frustrating, but it's completely normal. In fact, it’s a part of nearly every successful weight loss journey.
+            
+            Weight can fluctuate from day to day or week to week due to a variety of reasons—some of which have nothing to do with fat gain. Things like water retention, stress, hormonal changes, muscle soreness from workouts, or even a salty meal the night before can cause the scale to temporarily rise. What matters most is the long-term trend, and yours still shows dedication and progress.
+            
+            That said, this could be a great time to check in and make a few small adjustments to keep your momentum going. Here are some tips to help get you back in your groove:
+            
+            Revisit your food tracking
+            Even small changes in your routine—like extra nibbles, larger portions, or liquid calories—can add up over time. Try logging everything for a few days as honestly as possible to spot any subtle shifts.
+            
+            Mix up your activity
+            If your workouts have been consistent but feel repetitive, it might be time to challenge your body in new ways. Adding strength training, trying interval workouts, or simply increasing your daily steps can all make a difference.
+            
+            I'm here to support you every step of the way, whether the scale moves up, down, or holds steady. You’ve already proven that you have the strength and discipline to make changes. A single bump won’t stop you from reaching your goals.
+            
+            Let’s keep going—one day, one step, and one healthy choice at a time. You've got this! 💪✨
+            
+            </p>
+    </div>
+<script>
+    const hamburger = document.querySelector('.hamburger');
+    const navMenu = document.querySelector('.menu');
+    
+    hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('active');
+    navMenu.classList.toggle('active');
+    });
+    
+    document.querySelectorAll('.link').forEach(n => n.addEventListener('click', () => {
+    hamburger.classList.remove('active');
+    navMenu.classList.remove('active');
+    }));
+
+    const ctx = document.getElementById('progressChart').getContext('2d');
+    const progressChart = new Chart(ctx, {
+        type: 'line',
+        data: {
+            labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May'],
+            datasets: [{
+                label: 'Weight (kg)',
+                data: [150, 130, 115, 118, 119],
+                borderColor: '#d4753d',
+                backgroundColor: 'rgba(212, 117, 61, 0.2)',
+                borderWidth: 2
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            scales: {
+                y: {
+                    beginAtZero: false
+                }
+            }
+        }
+    });
+
+    function updateBMIIndicator(bmi) {
+    const bmiIndicator = document.getElementById('bmiIndicator');
+    let position = 0;
+
+        if (bmi < 18.5) position = 80; // Underweight
+        else if (bmi < 25) position = 60; // Normal
+        else if (bmi < 30) position = 40; // Overweight
+        else if (bmi < 35) position = 20; // Obese
+        else position = 5; // Extremely obese
+
+        bmiIndicator.style.top = position + "%";
+    }
+
+    updateBMIIndicator(27); // Example BMI value
+</script>
+</body>
+</html>
