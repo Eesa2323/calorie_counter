@@ -221,21 +221,26 @@ h3, h4, h5, h6, h7, h8{
 
 .calculate-btn {
 
-padding: 50px;
-position: fixed;
-float: right;
-bottom: 0;
-width: 200px;
+padding: 20px;
+position: absolute;
+justify-content: center;
+bottom: 50px;
+left: 50px;
+width: 400px;
 display: flex;
-text-align: center;
- padding: 5px;
-
-
+ background: linear-gradient(to right, #00ad25, #da9837);
+ color: white;
+ border: none;
+ font-size: 20px;
+ border-radius: 100px;
+ box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+ transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
 }
 
-
 .calculate-btn:hover {
-    background-color: #daac67;
+    transform: scale(1.1); /* Increases size by 10% */
+    transition: transform 0.2s ease-in-out; /* Smooth animation */
+    box-shadow: 0 4px 10px rgb(0, 0, 0);
 }
 
 .food-image img {
