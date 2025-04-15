@@ -190,7 +190,7 @@ select option[disabled] {
 }
 
 .next-btn {
-    background: linear-gradient(to right, #d400ff, #00e1ff);
+    background: linear-gradient(to right, #52b000, #ffd000);
     color: white;
     border: none;
     padding: 10px 20px;
