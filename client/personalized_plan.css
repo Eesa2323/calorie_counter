@@ -16,41 +16,82 @@ h1, h3 {
 }
  
 #Kalorie {
-    text-align: right;
+    text-align: left;
     color: black;
 }
  
 /* Header Styling */
+.logo {
+    float: left;
+    width: 100px;
+}
+
+li {
+    list-style: none;
+}
+
 #banner {
     position: fixed;
     top: 0;
     width: 100%;
     background-color: #da9837;
     padding: 20px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+}
+
+#banner h1 {
+    margin-left: 130px;
+    font-size: 2.5em;
     color: #fffcc9;
 }
- 
-.logo {
-    width: 80px;
+
+#banner p {
+    margin-left: 130px;
+    font-size: 1.25em;
+    color: #fffcc980;
 }
- 
-.navbar ul {
-    list-style: none;
-    display: flex;
-    gap: 20px;
-}
- 
-.navbar a {
+
+a {
     text-decoration: none;
-    color: #fffcc9;
-    transition: 0.3s;
+    color: #fffcc980;
+    transition: 0.5s ease;
 }
- 
-.navbar a:hover {
-    color: white;
+
+.menu {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 30px;
+    position: fixed;
+    top: 52px;
+    right: 20px;
+    
+}
+
+a:hover {
+    color: #fffcc9;
+}
+
+.navbar {
+    width: 100%;
+    min-height: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+.hamburger {
+    display: none;
+    cursor: pointer;
+}
+
+.bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 5px 0;
+    transition: all 0.3s ease;
+    background-color: #fffcc9;
 }
  
 /* Layout Styling */
