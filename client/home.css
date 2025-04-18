@@ -294,6 +294,26 @@ a:hover {
     color: #da9837;
 }
 
+.my_btn{
+    color: green;
+    background-color: #647b5f00;
+    font-family: 'Verdana', sans-serif;
+    font-size: large;
+    margin-left: 50px;
+    text-align: center;
+    width: 100px;
+    height: 30px;
+    margin-top: 10px;
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+    border-radius: 100px;
+}
+.my_btn:hover{
+    transform: scale(1.1); /* Increases size by 10% */
+    transition: transform 0.2s ease-in-out; /* Smooth animation */
+    background-color: green;
+    color: white;
+}
+
 @media(max-width:800px) {
     .hamburger {
         display: block;
