@@ -59,7 +59,11 @@ document.addEventListener("DOMContentLoaded", () => {
             return;
         }
 
-       
+        const userAuthData = {
+            username: username, // from your form input
+            email: email        // from your form input
+          };
+        localStorage.setItem('userAuthData', JSON.stringify(userAuthData));
         window.location.href = "Setup.html";
     });
 });
@@ -106,3 +110,4 @@ function validateConfirmPassword() {
         }
     }
 }
+
