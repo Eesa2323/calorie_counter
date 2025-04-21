@@ -45,22 +45,22 @@ function nextStep(step) {
     }
     // If it's the final step (6), redirect to home.html after short delay
   if (step === 6) {
-    setTimeout(() => {
-        const currentWeight = document.getElementById('current-weight').value;
-        const targetWeight = document.getElementById('target-weight').value;
-        const height = document.getElementById('height').value;
-        const age = document.getElementById('age').value;
-        const gender = document.querySelector('input[name="gender"]:checked').value;
+    const currentWeight = document.getElementById('weight').value;
+    const targetWeight = document.getElementById('target-weight').value;
+    const height = document.getElementById('height').value;
+    const age = document.getElementById('age').value;
+    const gender = document.querySelector('input[name="gender"]:checked').value;
 
-        const userData = {
-            currentWeight,
-            targetWeight,
-            height,
-            age,
-            gender
-        };
+    const userData = {
+        currentWeight,
+        targetWeight,
+        height,
+        age,
+        gender
+    };
 
     localStorage.setItem('userSetupData', JSON.stringify(userData));
+    setTimeout(() => {
       window.location.href = "home.html";
     }, 1500); // Adjust delay as needed (e.g. 1.5 seconds)
   }
@@ -84,6 +84,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     heightSelect.addEventListener("change", function () {
       this.blur();            // Collapse dropdown
-      this.scrollTop = 0;     // Reset scroll to top
+           // Reset scroll to top
     });
   });
+
