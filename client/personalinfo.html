@@ -17,7 +17,7 @@
         <nav class="navbar">
             <ul class="menu">
                 <li class="item"><a href="home.html" class="link">Home</a></li>
-                <li class="item"><a href="personalInfo.html" class="link">Personal Information</a></li>
+                <li class="item"><a href="personalinfo.html" class="link">Personal Information</a></li>
                 <li class="item"><a href="personalized_plan.html" class="link">Plan</a></li>
                 <li class="item"><a href="#" class="link">Progress</a></li>
                 <li class="item"><a href="signup.html" class="link">Sign Up</a></li>
@@ -33,13 +33,31 @@
     <script src="personalinfo.js"></script>
 
     <h2>Personal Information</h2>
+    <div class="user-info-card">
+        <div class="custom-user-icon"></div>
+        <h3 id="user-username">Username</h3>
+        <p id="user-email">example@email.com</p>
+    </div>
+    <div class="bmi-card">
+        <h2>Your BMI Result</h2>
+        <canvas id="bmi-graph" width="300" height="150"></canvas>
+        <div class="bmi-labels">
+          <span style="color:#3498db">Underweight</span>
+          <span style="color:#00b90f">Normal</span>
+          <span style="color:#f39c12">Overweight</span>
+          <span style="color:#e74c3c">Obesity</span>
+        </div>
+        <p id="bmi-value">--</p>
+        <p id="bmi-category">--</p>
+        <p id="activity-level">Activity Level: --</p>
+      </div>
 
     <div class="container">
         <div class="section1">
         <h3>Select your goal</h3>
-        <label><input type="radio">Maintain Weight</label>
-        <label><input type="radio">Lose Weight</label>
-        <label><input type="radio">Gain Weight</label>
+        <label><input type="radio" id="maintain-weight">Maintain Weight</label>
+        <label><input type="radio" id="lose-weight">Lose Weight</label>
+        <label><input type="radio" id="gain-weight">Gain Weight</label>
         </div>
     
         <div class="section2">
@@ -60,13 +78,13 @@
      
         <div class="section3">
         <h6>Your Details:</h6>
-        <label>Age:</label><input class="textboxes" type="text" placeholder="Age">
-        <label>Weight:</label><input class="textboxes" type="text" placeholder="Weight (kg)">
-        <label>Height:</label><input class="textboxes" type="text" placeholder="Height (cm)">
+        <label>Age:</label><input class="textboxes" type="text" id="age" placeholder="Age">
+        <label>Weight:</label><input class="textboxes" type="text" id="current-weight" placeholder="Weight (kg)">
+        <label>Height:</label><input class="textboxes" type="text" id="height" placeholder="Height (cm)">
 
         <h7><b>Gender:</b></h7>
-        <label><input type="radio">Male</label>
-        <label><input type="radio">Female</label>
+        <label><input type="radio" id="male">Male</label>
+        <label><input type="radio" id="female">Female</label>
 
         <h8><b>Activity Level</b></h8>
         <label><input type="radio">Little to None</label>
@@ -87,3 +105,4 @@
        
 </body>
 </html>
+
