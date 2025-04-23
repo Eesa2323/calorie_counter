@@ -68,8 +68,8 @@ document.addEventListener('DOMContentLoaded', function() {
         const canvas = document.getElementById('bmi-graph');
         const ctx = canvas.getContext('2d');
 
-        const sections = [18.5, 25, 30, 40];
-        const colors = ['#3498db', '#00b90f', '#f39c12', '#e74c3c'];
+        const sections = [16, 17, 18.5, 25, 30, 35, 40];
+        const colors = ['#9b59b6', '#8e44ad', '#3498db', '#00b90f', '#f39c12', '#e67e22', '#e74c3c'];
 
         let startAngle = Math.PI;
         const fullSpan = Math.PI;
@@ -78,7 +78,8 @@ document.addEventListener('DOMContentLoaded', function() {
           ctx.clearRect(0, 0, 300, 150);
           startAngle = Math.PI;
           sections.forEach((limit, index) => {
-            const range = limit - (index > 0 ? sections[index - 1] : 0);
+            const prev = index > 0 ? sections[index - 1] : 0;
+            const range = limit - prev;
             const arcLength = fullSpan * (range / 40);
             ctx.beginPath();
             ctx.arc(150, 150, 120, startAngle, startAngle + arcLength);
@@ -92,9 +93,12 @@ document.addEventListener('DOMContentLoaded', function() {
         drawGraph();
 
         let color = '#00b90f';
-        if (bmi < 18.5) color = '#3498db';
+        if (bmi < 16) color = '#9b59b6';
+        else if (bmi < 17) color = '#8e44ad';
+        else if (bmi < 18.5) color = '#3498db';
         else if (bmi < 25) color = '#00b90f';
         else if (bmi < 30) color = '#f39c12';
+        else if (bmi < 35) color = '#e67e22';
         else color = '#e74c3c';
 
         document.getElementById('bmi-value').style.color = color;
@@ -122,18 +126,30 @@ document.addEventListener('DOMContentLoaded', function() {
 
             let category = '';
             let activity = '';
-            if (bmi < 18.5) {
-              category = 'Underweight';
+            if (bmi < 16) {
+              category = 'Severe Thinness';
+              activity = 'Consult a health professional';
+            } else if (bmi < 17) {
+              category = 'Moderate Thinness';
+              activity = 'Exercise 1-2 times/week';
+            } else if (bmi < 18.5) {
+              category = 'Mild Thinness';
               activity = 'Exercise 1-3 times/week';
             } else if (bmi < 25) {
-              category = 'Normal weight';
+              category = 'Normal';
               activity = 'Exercise 4-5 times/week';
             } else if (bmi < 30) {
               category = 'Overweight';
-              activity = 'Exercise 6-7 times/week';
+              activity = 'Exercise 5-6 times/week';
+            } else if (bmi < 35) {
+              category = 'Obese Class I';
+              activity = 'Daily moderate exercise';
+            } else if (bmi < 40) {
+              category = 'Obese Class II';
+              activity = 'Daily intense exercise';
             } else {
-              category = 'Obesity';
-              activity = 'Very intense exercise daily';
+              category = 'Obese Class III';
+              activity = 'Very intense supervised activity';
             }
 
             document.getElementById('bmi-category').textContent = category;
@@ -156,18 +172,16 @@ document.addEventListener('DOMContentLoaded', function() {
   document.querySelector('.calculate-btn').addEventListener('click', function(event) {
     event.preventDefault();
 
-    // Update localStorage from form inputs
+    // Save updated form data first
     const updatedUserData = {
-      currentWeight: document.getElementById('current-weight')?.value,
-      height: document.getElementById('height')?.value,
-      age: document.getElementById('age')?.value,
-      gender: document.getElementById('male')?.checked ? 'male' : (document.getElementById('female')?.checked ? 'female' : ''),
-      targetWeight: localStorage.getItem('userSetupData') ? JSON.parse(localStorage.getItem('userSetupData')).targetWeight : ''
+      age: document.getElementById('age').value,
+      currentWeight: document.getElementById('current-weight').value,
+      height: document.getElementById('height').value,
+      gender: document.getElementById('male').checked ? 'male' : 'female'
     };
-
     localStorage.setItem('userSetupData', JSON.stringify(updatedUserData));
 
-    // Now calculate
+    // Then run BMI calculation
     calculateBMI();
   });
 });
